@@ -11,8 +11,12 @@ Memory game
 * it gets more difficult over time
 * there is a bigger grid depending on the level
 ### Skill Usage
-Explain what skills from this semester you will be using in this project, and how they will be used.
-
+* making shapes
+* using arrays
+* manipulating colors
+* using mouse
+* using keys
+* objects and classes 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 

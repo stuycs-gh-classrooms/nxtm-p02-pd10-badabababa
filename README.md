@@ -6,7 +6,7 @@
 ---
 
 ### Project Description
-Memory game/ simon says. 
+Memory game 
 3 difficulty levels: easy, medium, hard
 * it gets more difficult over time
 * there is a bigger grid depending on the level

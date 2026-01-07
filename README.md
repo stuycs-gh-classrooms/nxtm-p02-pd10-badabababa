@@ -2,10 +2,14 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=22153574)
 # NeXtCS Final Project
 ### Name 0: MST. Bonna
+### Name 1: Jaima Zara
 ---
 
 ### Project Description
-
+Memory game/ simon says. 
+3 difficulty levels: easy, medium, hard
+* it gets more difficult over time
+* there is a bigger grid depending on the level
 ### Skill Usage
 Explain what skills from this semester you will be using in this project, and how they will be used.
 

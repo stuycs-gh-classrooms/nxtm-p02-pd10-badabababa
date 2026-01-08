@@ -62,9 +62,9 @@ int timer
 
 Grid(int level)
 
-void display() - draws the grid and all cells
-void createPattern() - creates random pattern of lights
-void displayPattern() - plays back the sequence with timing
+void display() 
+void createPattern() 
+void displayPattern() 
 
 class Lights 
 

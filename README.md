@@ -35,6 +35,52 @@ Score count will be in the corner. Mouse movement will not be tracked, but wheth
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
 The classes we will use is Grid and Lights.
+Driver File: Memory Game
+boolean gameState
+
+void nextRound() 
+void loseLife()
+void resetGame() 
+void updateScore(int points)
+void draw()
+void setup()
+
+
 class Grid 
+int gridSize
+Lights [][] blinker
+Lights [] pattern
+int patternLength
+Lights[] playerInput
+int playerInputCount
+int level
+int score
+int lives
+boolean isPatternShown
+boolean playerTurn
+int timer
+
+Grid(int level)
+
+void display() - draws the grid and all cells
+void createPattern() - creates random pattern of lights
+void displayPattern() - plays back the sequence with timing
 
 class Lights 
+
+int x
+int y
+int size
+color lightOff
+color lightOn
+boolean isOn
+int row 
+int col
+
+Lights(int x, int y, int size, int row, int col) 
+
+void display()
+void lightUp() 
+void turnOff() 
+boolean isClicked(int mouseX, int mouseY) 
+void flash() 

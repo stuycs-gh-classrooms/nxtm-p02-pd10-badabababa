@@ -11,10 +11,15 @@ boolean chooseMode = false;
 boolean playStart = false;
 boolean endPage = false;
 int mode;
+int i;
+int size = 200;
+Grid g1;
+int timer = 0;
 
 void setup() {
   //cute=createFont("Purisa-Oblique-80.vlw",80);
-  size(800, 800);
+  size(750, 750);
+  frameRate = 60;
 }
 
 void draw() {
@@ -37,6 +42,25 @@ void draw() {
     background(255);
     modeButtons();
   }
+  if (playStart) {
+    background(255);
+    g1.display();
+    textSize(30);
+    text("score: " + score, width/2 - 50, 50);
+    if (mode==EASY) {
+      text("mode: EASY", 10, 50);
+    }
+    if (mode == MED) {
+      text("mode: MED", 10, 50);
+    }
+    if (mode ==HARD) {
+      text("mode: HARD", 10, 50);
+    }
+    if (frameCount % 60 == 0) {
+      timer += 1;
+    }
+    text("time: " + timer, 600, 50);
+  }
 }
 
 void mousePressed() {
@@ -49,19 +73,29 @@ void mousePressed() {
     }
   }
   if (chooseMode) {
-   if(mouseX >= width/2 - 350 && mouseX<= width/2 -150 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
-     //println("works");
-     mode = EASY;
+    if (mouseX >= width/2 - 350 && mouseX<= width/2 -150 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
+      //println("works");
+      mode = EASY;
+      //println(mode);
+      playStart=true;
+      g1 = new Grid(mode);
+    }
+    if (mouseX >= width/2 - 100 && mouseX<= width/2 + 100 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
+      //println("works");
+      mode = MED;
+      //println(mode);
+      playStart=true;
+      g1 = new Grid(mode);
+    }
+    if (mouseX >= width/2 + 150 && mouseX<= width/2 + 350 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
+      //println("works");
+      mode = HARD;
+      //println(mode);
+      playStart=true;
+      g1 = new Grid(mode); //updates for every new mode
+    }
   }
-  if(mouseX >= width/2 - 100 && mouseX<= width/2 + 100 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
-     //println("works");
-     mode = MED;
-  }
-  if(mouseX >= width/2 + 150 && mouseX<= width/2 + 350 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
-     //println("works");
-     mode = HARD;
-  }
-  }
+  //println(playStart);
 }
 
 void modeButtons() {

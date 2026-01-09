@@ -1,5 +1,5 @@
 boolean startPage=true;
-//PFont cute;
+PFont cute;
 //cute=createFont("Purisa-48.vlw", 128);
 int score;
 int highscore;
@@ -15,25 +15,28 @@ int i;
 int size = 200;
 Grid g1;
 int timer = 0;
+boolean chosen;
 
 void setup() {
-  //cute=createFont("Purisa-Oblique-80.vlw",80);
+  cute=createFont("Sawasdee", 80);
   size(750, 750);
-  frameRate = 60;
+  frameRate(60);
+  //printArray(PFont.list());
 }
 
 void draw() {
   if (startPage) {
     background(255);
-    fill(0);
+    noStroke();
+    fill(253, 185, 201);
     rect(width/2 - 100, height/2 + 100, 200, 100, 20); //PLAY BUTTON
     fill(255);
     textSize(80);
-    //textFont(cute);
+    textFont(cute);
     text("Play", width/2 -75, height/2 +175);
     fill(0);
     textSize(100);
-    text("Memory Game", width/2-295, height - 500);
+    text("Memory Game", width/2-330, height - 500);
   }
   if (!startPage && !playStart) {
     chooseMode=true;
@@ -61,6 +64,7 @@ void draw() {
     }
     text("time: " + timer, 600, 50);
   }
+  //println(chooseMode);
 }
 
 void mousePressed() {
@@ -79,6 +83,7 @@ void mousePressed() {
       //println(mode);
       playStart=true;
       g1 = new Grid(mode);
+      chooseMode = !chooseMode;
     }
     if (mouseX >= width/2 - 100 && mouseX<= width/2 + 100 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
       //println("works");
@@ -86,6 +91,7 @@ void mousePressed() {
       //println(mode);
       playStart=true;
       g1 = new Grid(mode);
+      chooseMode = !chooseMode;
     }
     if (mouseX >= width/2 + 150 && mouseX<= width/2 + 350 && mouseY >= height/2 -60 && mouseY <= height/2 + 40) {
       //println("works");
@@ -93,6 +99,7 @@ void mousePressed() {
       //println(mode);
       playStart=true;
       g1 = new Grid(mode); //updates for every new mode
+      chooseMode = !chooseMode;
     }
   }
   //println(playStart);
@@ -102,7 +109,7 @@ void modeButtons() {
   noStroke();
   fill(0, 200, 100);
   rect(width/2 - 350, height/2 - 60, 200, 100, 20); //EASY BUTTON
-  fill(255, 149, 0);
+  fill(255, 225, 180);
   rect(width/2 - 100, height/2 - 60, 200, 100, 20); //MED BUTTON
   fill(100, 10, 10);
   rect(width/2 + 150, height/2 - 60, 200, 100, 20); //HARD BUTTON
@@ -111,4 +118,17 @@ void modeButtons() {
   text("EASY", width/2 - 330, height/2 + 15);
   text("MED", width/2 - 70, height/2 + 15);
   text("HARD", width/2 + 160, height/2 + 15);
+}
+
+void reset() {
+  playStart = !playStart;
+  chooseMode = !chooseMode;
+  timer = 0;
+  score = 0;
+}
+
+void keyPressed() {
+  if (key=='r' || key == 'R') {
+    reset();
+  }
 }
